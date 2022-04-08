@@ -34,6 +34,12 @@ tr:nth-child(even) {
     <td>{{ d.id }}</td>
     <td>{{ d.task_name }}</td>
     <td>{{ d.task_details }}</td>
+    <form action ="/app1/edittask">
+      <input type="hidden" name="id" value="{{ d.id }}"/>
+            <input type="hidden" name="task" value="{{ d.task_name }}"/>
+            <input type="hidden" name="taskDetails" value="{{ d.task_details }}"/>
+    <td><input type="submit" value="Update"/></td>
+    </form>
   </tr>
 
 

@@ -12,8 +12,8 @@ def testing(request):
     return render(request, "index.html")
 
 def xyz(request):
-    task = request.GET.get('task')
-    taskddesc = request.GET.get('taskdesc')
+    task = request.POST.get('task')
+    taskddesc = request.POST.get('taskdesc')
     # cursor = connection.cursor()
     # query = "insert into App1_task1(task_name,task_details) values('"+task+ "','" +taskddesc+ "')"
     # cursor.execute(query)
@@ -26,3 +26,10 @@ def xyz(request):
     data2 = Task1.objects.all()
     data1 = {"xyz": data2}
     return render(request, "new.html",data1)
+
+def edittask(request):
+    print("Hello")
+    id = request.GET.get('id')
+    taskddesc = request.GET.get('taskDetails')
+    task = request.GET.get('task')
+    return render(request, "editindex.html", {"id":id, "task":task, "taskdesc":taskddesc})
